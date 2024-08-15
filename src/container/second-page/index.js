@@ -3,84 +3,86 @@ import {
   createHeader,
 } from '../../script/layout'
 
-const page = document.querySelector('.page')
+const page2 = document.querySelector('.page__2')
 
 const header = createHeader()
-page.append(header)
+page2.append(header)
 
-const title = createElement('h1', 'title', 'Мій блог')
-page.append(title)
 //=======================================================================================
 
-const POST_LIST = [
+const CHANGE_LIST = [
   {
-    category: [
-      { text: 'Важливо', id: 1 },
-      { text: 'Нова', id: 2 },
-    ],
-    info: 'До біса планувальник, наймаємо дизайнера і готуємося до презентації, як Джобс',
-    date: '25.01',
-    viewed: false,
+    info: 'База знань',
+    viewed: true,
   },
   {
-    category: [{ text: 'Нова', id: 2 }],
-    info: 'Ми хотіли щоб у цьому чаті було близько 150 людей щоб зробити якісний пак самопрезентацій.',
-    date: '24.01',
-    viewed: true,
+    info: 'Інформація',
+    viewed: false,
   },
 ]
 
-const createPost = () => {
-  const postList = createElement('main', 'posr__list')
+const createChange = () => {
+  const changeTwo = createElement('div', 'change')
 
-  POST_LIST.forEach((postData) => {
-    const post = createElement(
+  CHANGE_LIST.forEach((ch) => {
+    const change = createElement(
       'div',
-      postData.viewed
-        ? 'post button post--viewed'
-        : 'post button',
+      ch.viewed
+        ? 'change__ch change--viewed'
+        : 'change__ch',
     )
 
-    const postHeader = createElement('div', 'post__header')
-
-    //===
-
-    const categoryList = createElement(
+    const text = createElement(
       'div',
-      'post_category-list',
+      'change__text',
+      ch.info,
     )
 
-    postData.category.forEach((category) => {
-      const categorySpan = createElement(
-        'span',
-        `post__category post__category--${category.id}`,
-        category.text,
-      )
-      categoryList.append(categorySpan)
-    })
+    const under = createElement('div', 'change__under')
+    change.append(text, under)
 
-    //======
-
-    const dateSpan = createElement(
-      'span',
-      'post__date',
-      postData.date,
-    )
-    postHeader.append(categoryList, dateSpan)
-
-    //======
-
-    const infoParagraph = createElement(
-      'p',
-      'post__info',
-      postData.info,
-    )
-    post.append(postHeader, infoParagraph)
-
-    postList.append(post)
-
-    //======
-    page.append(post)
+    changeTwo.append(change)
   })
+  return changeTwo
 }
+
+const change = createChange()
+page2.append(change)
+//======
+
+const src = `/img/telegram.png`
+// const infoBox = createElement('div', 'info')
+const img = createElement('img', 'info__img')
+
+img.src = src
+// infoBox.append(img)
+page2.append(img)
+
+const title = createElement(
+  'h1',
+  'title',
+  'Що таке база знань?',
+)
+page2.append(title)
+
+//======
+
+const infoParagraph = createElement(
+  'p',
+  'post__info',
+  `База знань - база даних, що містить правила виведення та інформацію про людський
+    досвід і знання в деякій предметній галузі. У системах, що самонавчаються, база знань також містить
+    інформацію, що є результатом вирішення попередніх завдань`,
+)
+page2.append(infoParagraph)
+
+const button = createElement(
+  'button',
+  'button button__link-tg',
+  `Перейти до ком'юніті у Телеграм`,
+)
+
+page2.append(button)
+
+//======
 const post = createPost()

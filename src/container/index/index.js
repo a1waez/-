@@ -31,7 +31,7 @@ const POST_LIST = [
 ]
 
 const createPost = () => {
-  const postList = createElement('main', 'posr__list')
+  const postList = createElement('main', 'post__list')
 
   POST_LIST.forEach((postData) => {
     const post = createElement(

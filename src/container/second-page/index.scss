@@ -1,12 +1,12 @@
 .all__page {
 	display: flex;
-	flex-direction: row;
 	justify-content: center;
 }
 
 .page {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	max-width: 400px;
 
 	gap: 32px;
@@ -18,10 +18,10 @@
 	border-radius: 20px;
 }  
 
-.page_2 {
+.page__2 {
 	display: flex;
 	flex-direction: column;
-	max-width: 400px;
+	width: 400px;
 
 	gap: 32px;
 	padding: 24px;
@@ -119,32 +119,50 @@
 //=============================================
 
 
-.nav-tabs {
+.change {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 }
 
-.table__title {
+.change__ch {
 	display: flex;
 	flex-direction: column;
 	justify-items: center;
 	padding: 5px;
 	
+	
 	&:hover {
 		cursor: pointer;
 	}
-	
-	&-disable {
+
+	&--viewed {
 		font-size: 20px;
 		color: gray;
 	}
-
-	&-active {
-		font-size: 20px;
-		color: black;
-	}
+	
 } 
+.change__under {
+	font-size: 20px;
+	color: gray;
+}
+
+.change__text {
+	font-size: 20px;
+	color: black;
+	font-weight: bold;
+} 
+
+
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.info__img {
+	
+}
 
 .button__link-tg {
 	display: flex;
